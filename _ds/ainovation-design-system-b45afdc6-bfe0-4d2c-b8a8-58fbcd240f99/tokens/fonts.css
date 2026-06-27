@@ -1,0 +1,4 @@
+/* AiNovation webfonts — Manrope (brand / marketing) + Inter (UI, dashboards, schemas).
+   Both fully support Cyrillic. Loaded from Google Fonts; @font-face rules below
+   declare the shipped webfaces so consumers pick them up automatically. */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');

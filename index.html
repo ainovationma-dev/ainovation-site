@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AiNovation — Система роста бизнеса без роста штата</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/ainovation-design-system-b45afdc6-bfe0-4d2c-b8a8-58fbcd240f99/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/ainovation-design-system-b45afdc6-bfe0-4d2c-b8a8-58fbcd240f99/tokens/colors.css">
+<link rel="stylesheet" href="_ds/ainovation-design-system-b45afdc6-bfe0-4d2c-b8a8-58fbcd240f99/tokens/typography.css">
+<link rel="stylesheet" href="_ds/ainovation-design-system-b45afdc6-bfe0-4d2c-b8a8-58fbcd240f99/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/ainovation-design-system-b45afdc6-bfe0-4d2c-b8a8-58fbcd240f99/tokens/effects.css">
+<link rel="stylesheet" href="_ds/ainovation-design-system-b45afdc6-bfe0-4d2c-b8a8-58fbcd240f99/components/components.css">
+<link rel="stylesheet" href="_ds/ainovation-design-system-b45afdc6-bfe0-4d2c-b8a8-58fbcd240f99/styles.css">
+<script src="_ds/ainovation-design-system-b45afdc6-bfe0-4d2c-b8a8-58fbcd240f99/_ds_bundle.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  html, body { margin: 0; background: #08070B; }
+  * { box-sizing: border-box; }
+  a { color: inherit; }
+  ::selection { background: rgba(139,92,246,0.35); }
+  [data-lucide] { stroke-width: 1.75; }
+  @media (max-width: 920px) {
+    [data-r="container"] { padding-left: 22px !important; padding-right: 22px !important; }
+    [data-r="section"] { padding-top: 56px !important; padding-bottom: 56px !important; }
+    [data-r="h1"] { font-size: 38px !important; transform: none !important; }
+    [data-r="h2"] { font-size: 28px !important; }
+    [data-r="grid-3"] { grid-template-columns: 1fr !important; }
+    [data-r="grid-2"] { grid-template-columns: 1fr !important; }
+    [data-r="grid-4"] { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+    [data-r="compare"] { grid-template-columns: 1fr !important; }
+    [data-r="nav"] { display: none !important; }
+    [data-r="header-cta"] { display: none !important; }
+    [data-r="process"] { grid-template-columns: 1fr 1fr !important; row-gap: 36px !important; }
+    [data-r="process"] [data-r="proc-line"] { display: none !important; }
+    [data-r="row"] { flex-direction: column !important; align-items: stretch !important; }
+    [data-r="cta-pad"] { padding: 44px 26px !important; }
+  }
+</style>
+</helmet>
+<div data-screen-label="AiNovation Landing" style="background:#08070B;font-family:'Manrope',system-ui,sans-serif;color:#F4F7FF;-webkit-font-smoothing:antialiased;">
+
+  <!-- ============ HEADER ============ -->
+  <header style="position:sticky;top:0;z-index:60;background:rgba(8,7,11,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #2A2A3D;">
+    <div data-r="container" style="max-width:1240px;margin:0 auto;padding:0 80px;height:72px;display:flex;align-items:center;gap:28px;">
+      <x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Logo" size="sm" hint-size="170px,40px"></x-import>
+      <nav data-r="nav" style="display:flex;gap:26px;margin-left:24px;">
+        <a href="#about" style="font-family:'Inter',sans-serif;font-size:15px;color:#A8ACBC;text-decoration:none;">Подход</a>
+        <a href="#products" style="font-family:'Inter',sans-serif;font-size:15px;color:#A8ACBC;text-decoration:none;">Услуги</a>
+        <a href="#solutions" style="font-family:'Inter',sans-serif;font-size:15px;color:#A8ACBC;text-decoration:none;">Решения</a>
+        <a href="#cases" style="font-family:'Inter',sans-serif;font-size:15px;color:#A8ACBC;text-decoration:none;">Результаты</a>
+        <a href="#training" style="font-family:'Inter',sans-serif;font-size:15px;color:#A8ACBC;text-decoration:none;">Обучение</a>
+        <a href="#team" style="font-family:'Inter',sans-serif;font-size:15px;color:#A8ACBC;text-decoration:none;">Экспертиза</a>
+      </nav>
+      <div data-r="header-cta" style="margin-left:auto;">
+        <a href="#cta" style="text-decoration:none;">
+          <x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Button" variant="primary" size="sm" hint-size="170px,40px">Обсудить внедрение</x-import>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO + STATS ============ -->
+  <section id="hero" style="background:#0E1020;border-bottom:1px solid #2A2A3D;position:relative;overflow:hidden;">
+    <canvas id="ai-hero-shader" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;pointer-events:none;"></canvas>
+    <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,#0E1020 0%,rgba(14,16,32,0.72) 34%,rgba(14,16,32,0.28) 64%,rgba(8,7,11,0.5) 100%);"></div>
+    <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(8,7,11,0.4) 0%,rgba(14,16,32,0) 22%,rgba(14,16,32,0) 72%,#0E1020 100%);"></div>
+
+    <div data-r="container" style="position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:84px 80px 0;">
+      <span style="display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#CBB6FF;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.32);padding:7px 14px;border-radius:999px;">Диагностика → пилот → обучение команды</span>
+      <h1 data-r="h1" style="font-weight:700;font-size:60px;line-height:1.05;letter-spacing:-0.02em;margin:24px 0 0;max-width:760px;">Система роста бизнеса <span style="background:linear-gradient(100deg,#8B5CF6,#49D6FF 60%,#D6DEFF);-webkit-background-clip:text;background-clip:text;color:transparent;">без роста штата</span></h1>
+      <p style="font-size:19px;line-height:1.55;color:#A8ACBC;margin:22px 0 0;max-width:540px;">Определяем, где ИИ реально окупится, запускаем пилот и встраиваем решение в работу команды — без хаоса и слепых вложений.</p>
+      <div data-r="row" style="display:flex;gap:14px;margin-top:30px;">
+        <a href="https://t.me/ainovation_online" target="_blank" rel="noopener" style="text-decoration:none;"><x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Button" variant="primary" size="lg" hint-size="300px,56px">Записаться на ИИ-диагностику</x-import></a>
+        <a href="#cases" style="text-decoration:none;"><x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Button" variant="secondary" size="lg" hint-size="180px,56px">Смотреть результаты</x-import></a>
+      </div>
+    </div>
+
+    <div data-r="container" style="position:relative;z-index:2;max-width:1240px;margin:48px auto 0;padding:26px 80px 40px;border-top:1px solid #2A2A3D;">
+      <div data-r="grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+        <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:34px;letter-spacing:-0.02em;color:#49D6FF;line-height:1;">6 недель</div><div style="font-family:'Inter',sans-serif;font-size:13.5px;line-height:1.4;color:#A8ACBC;margin-top:9px;">от диагностики до запуска пилота</div></div>
+        <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:34px;letter-spacing:-0.02em;color:#CBB6FF;line-height:1;">20+ лет</div><div style="font-family:'Inter',sans-serif;font-size:13.5px;line-height:1.4;color:#A8ACBC;margin-top:9px;">управленческого опыта в основе методологии</div></div>
+        <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:34px;letter-spacing:-0.02em;color:#49D6FF;line-height:1;">1 процесс</div><div style="font-family:'Inter',sans-serif;font-size:13.5px;line-height:1.4;color:#A8ACBC;margin-top:9px;">начинаем с пилота, а не перестройки всего</div></div>
+        <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:34px;letter-spacing:-0.02em;color:#47EBA5;line-height:1;">человек + ИИ</div><div style="font-family:'Inter',sans-serif;font-size:13.5px;line-height:1.4;color:#A8ACBC;margin-top:9px;">контроль остаётся за вашей командой</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ПОДХОД · БЫЛО → СТАЛО ============ -->
+  <section id="about" data-r="section" style="padding:80px 0;background:#08070B;">
+    <div data-r="container" style="max-width:1240px;margin:0 auto;padding:0 80px;">
+      <div data-r="row" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;">
+        <div style="max-width:680px;">
+          <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8B5CF6;">Что мы меняем</span>
+          <h2 data-r="h2" style="font-weight: 600; font-size: 38px; line-height: 1.12; letter-spacing: -0.01em; margin: 14px 0 0; width: 100%">ИИ в компании уже есть. <span style="color: #A8ACBC; width: 696px; height: 95px"><br>Системы — ещё нет.</span></h2>
+        </div>
+      </div>
+
+      <div style="margin-top:40px;background:#161629;border:1px solid #2A2A3D;border-radius:24px;padding:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+        <div data-r="compare" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div style="background: #0E1020; border: 1px solid #2A2A3D; border-radius: 18px; padding: 28px 30px; display: flex">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;"><span style="width:9px;height:9px;border-radius:50%;background:#6F7384;"></span><span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#6F7384;">Сейчас</span></div>
+            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
+              <li style="display:flex;gap:12px;color:#A8ACBC;font-size:15.5px;line-height:1.45;"><i data-lucide="x" width="18" height="18" style="flex:none;margin-top:1px;color:#6F7384;"></i>Разрозненные инструменты у разных сотрудников</li>
+              <li style="display:flex;gap:12px;color:#A8ACBC;font-size:15.5px;line-height:1.45;"><i data-lucide="x" width="18" height="18" style="flex:none;margin-top:1px;color:#6F7384;"></i>Эффект ИИ не виден в выручке и экономике процессов</li>
+              <li style="display:flex;gap:12px;color:#A8ACBC;font-size:15.5px;line-height:1.45;"><i data-lucide="x" width="18" height="18" style="flex:none;margin-top:1px;color:#6F7384;"></i>Нет правил, обучения и ответственного за результат</li>
+            </ul>
+          </div>
+          <div style="position:relative;background:#1E1B3A;border:1px solid rgba(139,92,246,0.35);border-radius:18px;padding:28px 30px;box-shadow:0 0 24px rgba(139,92,246,0.15),inset 0 1px 0 rgba(255,255,255,0.05);overflow:hidden;">
+            <span aria-hidden="true" style="position:absolute;top:-50px;right:-30px;width:180px;height:180px;background:radial-gradient(closest-side,rgba(139,92,246,0.28),rgba(139,92,246,0) 70%);"></span>
+            <div style="position:relative;display:flex;align-items:center;gap:10px;margin-bottom:20px;"><span style="width:9px;height:9px;border-radius:50%;background:#47EBA5;box-shadow:0 0 8px #47EBA5;"></span><span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#A8F4D2;">С AiNovation</span></div>
+            <ul style="position:relative;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
+              <li style="display:flex;gap:12px;color:#F4F7FF;font-size:15.5px;line-height:1.45;"><i data-lucide="check" width="18" height="18" style="flex:none;margin-top:1px;color:#47EBA5;"></i>Карта процессов, где ИИ реально окупается</li>
+              <li style="display:flex;gap:12px;color:#F4F7FF;font-size:15.5px;line-height:1.45;"><i data-lucide="check" width="18" height="18" style="flex:none;margin-top:1px;color:#47EBA5;"></i>Один работающий пилот с измеримым результатом</li>
+              <li style="display:flex;gap:12px;color:#F4F7FF;font-size:15.5px;line-height:1.45;"><i data-lucide="check" width="18" height="18" style="flex:none;margin-top:1px;color:#47EBA5;"></i>Команда, которая умеет пользоваться решением</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative;display:flex;align-items:center;gap:20px;margin-top:20px;background:linear-gradient(120deg,#1E1B3A,#161629 75%);border:1px solid rgba(139,92,246,0.40);border-radius:20px;padding:26px 30px;box-shadow:0 0 30px rgba(139,92,246,0.16),inset 0 1px 0 rgba(255,255,255,0.05);overflow:hidden;">
+        <span aria-hidden="true" style="position:absolute;top:-70px;left:-30px;width:240px;height:240px;background:radial-gradient(closest-side,rgba(139,92,246,0.22),rgba(139,92,246,0) 70%);pointer-events:none;"></span>
+        <span style="position:relative;flex:none;display:inline-flex;width:48px;height:48px;border-radius:14px;background:linear-gradient(120deg,#8B5CF6,#49D6FF 70%,#D6DEFF);align-items:center;justify-content:center;color:#0B0A12;"><i data-lucide="route" width="22" height="22"></i></span>
+        <p style="position:relative;margin:0;font-size:18.5px;line-height:1.5;font-weight:600;color:#F4F7FF;max-width:880px;">Мы не начинаем с выбора нейросети. <span style="color:#CBB6FF;">Сначала определяем процесс</span>, где ИИ может снять нагрузку, ускорить работу или улучшить контроль.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ КОМУ ПОДХОДИТ ============ -->
+  <section id="audience" data-r="section" style="padding:80px 0;background:#08070B;border-top:1px solid #2A2A3D;">
+    <div data-r="container" style="max-width:1240px;margin:0 auto;padding:0 80px;">
+      <div data-r="grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:4px 8px;">
+          <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8B5CF6;">Кому подходит</span>
+          <h2 data-r="h2" style="font-weight:600;font-size:34px;line-height:1.12;letter-spacing:-0.01em;margin:12px 0 0;">С кем работаем</h2>
+          <p style="font-size:15px;line-height:1.5;color:#8E92A4;margin:14px 0 0;">Лучше всего подходим, если у вас:</p>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;background:#161629;border:1px solid #2A2A3D;border-radius:14px;padding:20px 20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);"><i data-lucide="git-merge" width="20" height="20" style="flex:none;margin-top:1px;color:#CBB6FF;"></i><span style="font-size:15px;line-height:1.45;color:#D6DAE8;">Сложные продажи, КП, договорённости и длинный цикл сделки</span></div>
+        <div style="display:flex;gap:14px;align-items:flex-start;background:#161629;border:1px solid #2A2A3D;border-radius:14px;padding:20px 20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);"><i data-lucide="file-stack" width="20" height="20" style="flex:none;margin-top:1px;color:#CBB6FF;"></i><span style="font-size:15px;line-height:1.45;color:#D6DAE8;">Много ручной подготовки документов, отчётов, писем или материалов</span></div>
+        <div style="display:flex;gap:14px;align-items:flex-start;background:#161629;border:1px solid #2A2A3D;border-radius:14px;padding:20px 20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);"><i data-lucide="user-cog" width="20" height="20" style="flex:none;margin-top:1px;color:#B4ECFF;"></i><span style="font-size:15px;line-height:1.45;color:#D6DAE8;">Знания завязаны на отдельных сильных сотрудниках</span></div>
+        <div style="display:flex;gap:14px;align-items:flex-start;background:#161629;border:1px solid #2A2A3D;border-radius:14px;padding:20px 20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);"><i data-lucide="eye" width="20" height="20" style="flex:none;margin-top:1px;color:#B4ECFF;"></i><span style="font-size:15px;line-height:1.45;color:#D6DAE8;">Руководителю не хватает прозрачности по качеству работы команды</span></div>
+        <div style="display:flex;gap:14px;align-items:flex-start;background:#161629;border:1px solid #2A2A3D;border-radius:14px;padding:20px 20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);"><i data-lucide="users" width="20" height="20" style="flex:none;margin-top:1px;color:#A8F4D2;"></i><span style="font-size:15px;line-height:1.45;color:#D6DAE8;">Нужно обучить сотрудников пользоваться ИИ по единым правилам</span></div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center;margin-top:16px;background:#161629;border:1px solid #2A2A3D;border-radius:16px;padding:18px 22px;">
+        <i data-lucide="crosshair" width="20" height="20" style="flex:none;color:#49D6FF;"></i>
+        <p style="margin:0;font-size:15px;line-height:1.5;color:#A8ACBC;"><span style="color: rgb(244, 247, 255); font-weight: 600;">Основной фокус:</span> B2B-компании с выручкой от 100 млн ₽ — <b>инжиниринг, проектные бюро, экспертные сервисы, продажи сложных продуктов и услуг.</b></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ УСЛУГИ ============ -->
+  <section id="products" data-r="section" style="padding:80px 0;background:#0E1020;border-top:1px solid #2A2A3D;border-bottom:1px solid #2A2A3D;">
+    <div data-r="container" style="max-width:1240px;margin:0 auto;padding:0 80px;">
+      <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8B5CF6;">Что мы делаем</span>
+      <h2 data-r="h2" style="font-weight:600;font-size:38px;line-height:1.12;letter-spacing:-0.01em;margin:14px 0 36px;">Три этапа внедрения ИИ</h2>
+      <div data-r="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;">
+
+        <div style="display:flex;flex-direction:column;background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:26px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+            <span style="display:inline-flex;width:44px;height:44px;border-radius:13px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.32);align-items:center;justify-content:center;color:#CBB6FF;"><i data-lucide="scan-search" width="21" height="21"></i></span>
+            <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#6F7384;font-variant-numeric:tabular-nums;">01</span>
+          </div>
+          <h3 style="font-weight:600;font-size:19px;color:#F4F7FF;margin:0 0 8px;">ИИ-диагностика бизнеса</h3>
+          <p style="margin:0 0 16px;font-size:14.5px;line-height:1.5;color:#A8ACBC;">Находим, где ИИ окупится, прежде чем в него вкладываться: интервью с руководителями, анализ процессов, поиск узких мест.</p>
+          <div style="margin-top:auto;font-family:'Inter',sans-serif;font-size:13px;line-height:1.45;color:#8E92A4;"><span style="color:#CBB6FF;font-weight:600;">Результат · </span>карта процессов с приоритетами и понятная точка старта.</div>
+        </div>
+
+        <div style="position:relative;display:flex;flex-direction:column;background:#1E1B3A;border:1px solid rgba(139,92,246,0.4);border-radius:18px;padding:26px;box-shadow:0 0 28px rgba(139,92,246,0.2),inset 0 1px 0 rgba(255,255,255,0.05);overflow:hidden;">
+          <span aria-hidden="true" style="position:absolute;top:-60px;right:-40px;width:200px;height:200px;background:radial-gradient(closest-side,rgba(139,92,246,0.3),rgba(139,92,246,0) 70%);pointer-events:none;"></span>
+          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+            <span style="display:inline-flex;width:44px;height:44px;border-radius:13px;background:linear-gradient(100deg,#8B5CF6,#49D6FF 60%,#D6DEFF);align-items:center;justify-content:center;color:#0B0A12;"><i data-lucide="flask-conical" width="21" height="21"></i></span>
+            <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#CBB6FF;font-variant-numeric:tabular-nums;">02</span>
+          </div>
+          <h3 style="position:relative;font-weight:600;font-size:19px;color:#F4F7FF;margin:0 0 8px;">Пилотное внедрение</h3>
+          <p style="position:relative;margin:0 0 16px;font-size:14.5px;line-height:1.5;color:#A8ACBC;">Берём один процесс с понятным эффектом — продажи, КП, коммуникации, база знаний — и доводим решение до рабочего состояния.</p>
+          <div style="position:relative;margin-top:auto;font-family:'Inter',sans-serif;font-size:13px;line-height:1.45;color:#D6DEFF;"><span style="color:#CBB6FF;font-weight:600;">Результат · </span>процесс усилен ИИ, команда им пользуется, есть первый кейс.</div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:26px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+            <span style="display:inline-flex;width:44px;height:44px;border-radius:13px;background:rgba(73,214,255,0.1);border:1px solid rgba(73,214,255,0.28);align-items:center;justify-content:center;color:#B4ECFF;"><i data-lucide="graduation-cap" width="21" height="21"></i></span>
+            <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#6F7384;font-variant-numeric:tabular-nums;">03</span>
+          </div>
+          <h3 style="font-weight:600;font-size:19px;color:#F4F7FF;margin:0 0 8px;">Сопровождение и обучение команды</h3>
+          <p style="margin:0 0 16px;font-size:14.5px;line-height:1.5;color:#A8ACBC;">Обучаем сотрудников и встраиваем ИИ в ежедневную работу — пока он не станет такой же привычной частью процесса, как CRM.</p>
+          <div style="margin-top:auto;font-family:'Inter',sans-serif;font-size:13px;line-height:1.45;color:#8E92A4;"><span style="color:#9EE6FF;font-weight:600;">Результат · </span>сотрудники используют решение, есть инструкции и поддержка.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ КОРПОРАТИВНОЕ ОБУЧЕНИЕ ИИ ============ -->
+  <section id="training" data-r="section" style="padding:80px 0;background:#08070B;border-top:1px solid #2A2A3D;">
+    <div data-r="container" style="max-width:1240px;margin:0 auto;padding:0 80px;">
+      <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8B5CF6;">Корпоративное обучение</span>
+      <h2 data-r="h2" style="font-weight:600;font-size:38px;line-height:1.12;letter-spacing:-0.01em;margin:14px 0 0;max-width:720px;">Корпоративное обучение&nbsp;</h2>
+      <p style="font-size:16px;line-height:1.55;color:#A8ACBC;margin:16px 0 36px;max-width:780px;">Мы разрабатываем и проводим корпоративные программы по ИИ под задачи компании.&nbsp;</p>
+      <div data-r="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+
+        <div style="display:flex;gap:14px;align-items:center;background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:20px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="flex:none;display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(73,214,255,0.10);border:1px solid rgba(73,214,255,0.26);align-items:center;justify-content:center;color:#B4ECFF;"><i data-lucide="briefcase" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15px;line-height:1.3;color:#F4F7FF;margin:0;">ИИ для руководителей и управленческих команд</h3>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:center;background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:20px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="flex:none;display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(73,214,255,0.10);border:1px solid rgba(73,214,255,0.26);align-items:center;justify-content:center;color:#B4ECFF;"><i data-lucide="workflow" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15px;line-height:1.3;color:#F4F7FF;margin:0;">Систематизация бизнес-процессов с помощью ИИ</h3>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:center;background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:20px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="flex:none;display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(73,214,255,0.10);border:1px solid rgba(73,214,255,0.26);align-items:center;justify-content:center;color:#B4ECFF;"><i data-lucide="megaphone" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15px;line-height:1.3;color:#F4F7FF;margin:0;">Маркетинговая стратегия с AI</h3>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:center;background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:20px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="flex:none;display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(73,214,255,0.10);border:1px solid rgba(73,214,255,0.26);align-items:center;justify-content:center;color:#B4ECFF;"><i data-lucide="phone-call" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15px;line-height:1.3;color:#F4F7FF;margin:0;">AI-автоматизация отдела продаж</h3>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:center;background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:20px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="flex:none;display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(73,214,255,0.10);border:1px solid rgba(73,214,255,0.26);align-items:center;justify-content:center;color:#B4ECFF;"><i data-lucide="sparkles" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15px;line-height:1.3;color:#F4F7FF;margin:0;">ИИ-грамотность для сотрудников</h3>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:center;background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:20px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="flex:none;display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(73,214,255,0.10);border:1px solid rgba(73,214,255,0.26);align-items:center;justify-content:center;color:#B4ECFF;"><i data-lucide="puzzle" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15px;line-height:1.3;color:#F4F7FF;margin:0;">Практикум по созданию AI-ассистентов</h3>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center;margin-top:20px;font-size:14.5px;line-height:1.5;color:#A8ACBC;">
+        <i data-lucide="circle-check-big" width="18" height="18" style="flex: none; color: #7647eb"></i>
+        <span>Результат — <span style="color:#F4F7FF;">единый подход, рабочие сценарии и понимание</span>, какие процессы можно усилить дальше.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AI-РЕШЕНИЯ ДЛЯ БИЗНЕС-ЗАДАЧ ============ -->
+  <section id="solutions" data-r="section" style="padding:80px 0;background:#08070B;border-bottom:1px solid #2A2A3D;">
+    <div data-r="container" style="max-width:1240px;margin:0 auto;padding:0 80px;">
+      <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8B5CF6;">Решения</span>
+      <h2 data-r="h2" style="font-weight:600;font-size:36px;line-height:1.14;letter-spacing:-0.01em;margin:14px 0 0;max-width:840px;">AI-агенты для бизнес-процессов</h2>
+      <p style="font-size:16px;line-height:1.55;color:#A8ACBC;margin:16px 0 36px;max-width:780px;">Мы подбираем, адаптируем и внедряем решения под задачи бизнеса&nbsp;</p>
+      <div data-r="grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.30);align-items:center;justify-content:center;color:#CBB6FF;margin-bottom:16px;"><i data-lucide="layout-dashboard" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15.5px;color:#F4F7FF;margin:0 0 6px;">Для руководителя</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Управленческие сводки, контроль задач и договорённостей.</p>
+        </div>
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.30);align-items:center;justify-content:center;color:#CBB6FF;margin-bottom:16px;"><i data-lucide="target" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15.5px;color:#F4F7FF;margin:0 0 6px;">Для продаж</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Квалификация заявок, КП, follow-up, CRM и контроль этапов сделки.</p>
+        </div>
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(73,214,255,0.10);border:1px solid rgba(73,214,255,0.28);align-items:center;justify-content:center;color:#B4ECFF;margin-bottom:16px;"><i data-lucide="phone" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15.5px;color:#F4F7FF;margin:0 0 6px;">Для встреч и звонков</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Summary, задачи, риски и следующие шаги.</p>
+        </div>
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(73,214,255,0.10);border:1px solid rgba(73,214,255,0.28);align-items:center;justify-content:center;color:#B4ECFF;margin-bottom:16px;"><i data-lucide="scan-eye" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15.5px;color:#F4F7FF;margin:0 0 6px;">Для контроля качества</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Анализ звонков, переписок, жалоб и отзывов.</p>
+        </div>
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.30);align-items:center;justify-content:center;color:#CBB6FF;margin-bottom:16px;"><i data-lucide="megaphone" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15.5px;color:#F4F7FF;margin:0 0 6px;">Для маркетинга и контента</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Контент-планы, посты, материалы, гипотезы.</p>
+        </div>
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.30);align-items:center;justify-content:center;color:#CBB6FF;margin-bottom:16px;"><i data-lucide="bar-chart-3" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15.5px;color:#F4F7FF;margin:0 0 6px;">Для финансов и операций</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Регулярные сводки, отклонения, документы, отчёты.</p>
+        </div>
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(73,214,255,0.10);border:1px solid rgba(73,214,255,0.28);align-items:center;justify-content:center;color:#B4ECFF;margin-bottom:16px;"><i data-lucide="folder-open" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15.5px;color:#F4F7FF;margin:0 0 6px;">Для документов и базы знаний</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Договоры, регламенты, инструкции, внутренняя база.</p>
+        </div>
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:40px;height:40px;border-radius:12px;background:rgba(71,235,165,0.10);border:1px solid rgba(71,235,165,0.28);align-items:center;justify-content:center;color:#A8F4D2;margin-bottom:16px;"><i data-lucide="graduation-cap" width="19" height="19"></i></span>
+          <h3 style="font-weight:600;font-size:15.5px;color:#F4F7FF;margin:0 0 6px;">Для обучения сотрудников</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Адаптация, ответы по стандартам, поддержка команды.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ РЕЗУЛЬТАТЫ / КЕЙСЫ ============ -->
+  <section id="cases" data-r="section" style="padding:80px 0;background:#08070B;">
+    <div data-r="container" style="max-width:1240px;margin:0 auto;padding:0 80px;">
+      <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8B5CF6;">Результаты</span>
+      <h2 data-r="h2" style="font-weight:600;font-size:38px;line-height:1.12;letter-spacing:-0.01em;margin:14px 0 0;max-width:680px;">Наши кейсы</h2>
+      <p style="font-size:16px;line-height:1.55;color:#A8ACBC;margin:14px 0 36px;max-width:600px;">Примеры из проектного опыта. Цифры — оценочные, по экономике процессов клиентов.</p>
+      <div data-r="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+
+        <div style="display:flex;flex-direction:column;background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:28px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6F7384;">Инжиниринг · продажи</span>
+          <div style="font-weight:700;font-size:36px;letter-spacing:-0.02em;line-height:1.05;color:#49D6FF;margin:14px 0 0;font-variant-numeric:tabular-nums;">4,8 млн ₽<span style="font-size:17px;font-weight:600;color:#6F7384;">/год</span></div>
+          <h3 style="font-weight:600;font-size:16.5px;color:#F4F7FF;margin:14px 0 6px;">Экономия фонда оплаты</h3>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#A8ACBC;">Штат отдела сократился 6 → 2 после проектирования ИИ-архитектуры продаж и модели «сотрудник + ИИ».</p>
+          <span style="margin-top:16px;align-self:flex-start;display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;border:1px solid rgba(139,92,246,0.40);background:rgba(139,92,246,0.10);font-family:'Inter',sans-serif;font-size:11.5px;font-weight:600;color:#CBB6FF;"><span style="width:7px;height:7px;border-radius:50%;background:#8B5CF6;box-shadow:0 0 8px rgba(139,92,246,0.9);"></span>Спроектировано</span>
+        </div>
+
+        <div style="display:flex;flex-direction:column;background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:28px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6F7384;">Издательский проект · команда</span>
+          <div style="font-weight:700;font-size:36px;letter-spacing:-0.02em;line-height:1.05;color:#CBB6FF;margin:14px 0 0;font-variant-numeric:tabular-nums;">6 мес → 1 мес</div>
+          <h3 style="font-weight:600;font-size:16.5px;color:#F4F7FF;margin:14px 0 6px;">Цикл проекта в 6 раз короче</h3>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#A8ACBC;">7 ИИ-ассистентов в редакции вместо найма; потенциал выручки по направлению — с 4 до 24 млн ₽/год.</p>
+          <span style="margin-top:16px;align-self:flex-start;display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;border:1px solid rgba(139,92,246,0.40);background:rgba(139,92,246,0.10);font-family:'Inter',sans-serif;font-size:11.5px;font-weight:600;color:#CBB6FF;"><span style="width:7px;height:7px;border-radius:50%;background:#8B5CF6;box-shadow:0 0 8px rgba(139,92,246,0.9);"></span>Спроектировано</span>
+        </div>
+
+        <div style="display:flex;flex-direction:column;background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:28px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6F7384;">Аутстаффинг · контроль качества</span>
+          <div style="font-weight:700;font-size:36px;letter-spacing:-0.02em;line-height:1.05;color:#47EBA5;margin:14px 0 0;font-variant-numeric:tabular-nums;">≈24 тыс €<span style="font-size:17px;font-weight:600;color:#6F7384;">/год</span></div>
+          <h3 style="font-weight:600;font-size:16.5px;color:#F4F7FF;margin:14px 0 6px;">Новый отдел без найма</h3>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#A8ACBC;">Отдел контроля качества создан с нуля: ИИ-анализ звонков и автоотчёты вместо штатного сотрудника.</p>
+          <span style="margin-top:16px;align-self:flex-start;display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;border:1px solid rgba(73,214,255,0.40);background:rgba(73,214,255,0.10);font-family:'Inter',sans-serif;font-size:11.5px;font-weight:600;color:#9EE6FF;"><span style="width:7px;height:7px;border-radius:50%;background:#49D6FF;box-shadow:0 0 8px rgba(73,214,255,0.9);"></span>Спроектировано</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ПРОЦЕСС ============ -->
+  <section id="process" data-r="section" style="padding:80px 0;background:#0E1020;border-top:1px solid #2A2A3D;border-bottom:1px solid #2A2A3D;">
+    <div data-r="container" style="max-width:1240px;margin:0 auto;padding:0 80px;">
+      <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8B5CF6;">Методология</span>
+      <h2 data-r="h2" style="font-weight:600;font-size:38px;line-height:1.12;letter-spacing:-0.01em;margin:14px 0 44px;">Как проходит работа</h2>
+      <div data-r="process" style="position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;padding-top:8px;">
+        <div data-r="proc-line" aria-hidden="true" style="position:absolute;top:34px;left:8.333%;right:8.333%;height:2px;background:linear-gradient(90deg,#8B5CF6,#49D6FF,#D6DEFF);opacity:0.55;border-radius:2px;"></div>
+        <div data-r="proc-line" aria-hidden="true" style="position:absolute;top:34px;left:8.333%;right:8.333%;height:2px;background:linear-gradient(90deg,#8B5CF6,#49D6FF,#D6DEFF);filter:blur(8px);opacity:0.45;"></div>
+
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 4px;">
+          <span style="position:relative;z-index:1;display:inline-flex;width:52px;height:52px;border-radius:50%;background:#0E1020;border:1.5px solid #8B5CF6;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:600;font-size:17px;color:#F4F7FF;box-shadow:0 0 0 5px rgba(139,92,246,0.10),0 0 22px rgba(139,92,246,0.32);font-variant-numeric:tabular-nums;">01</span>
+          <h3 style="font-weight:600;font-size:15.5px;line-height:1.25;color:#F4F7FF;margin:18px 0 7px;">Разбираем процессы</h3>
+          <p style="margin:0;font-size:13px;line-height:1.45;color:#A8ACBC;">Где теряются время, деньги и управляемость.</p>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 4px;">
+          <span style="position:relative;z-index:1;display:inline-flex;width:52px;height:52px;border-radius:50%;background:#0E1020;border:1.5px solid #8B5CF6;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:600;font-size:17px;color:#F4F7FF;box-shadow:0 0 0 5px rgba(139,92,246,0.10),0 0 22px rgba(139,92,246,0.32);font-variant-numeric:tabular-nums;">02</span>
+          <h3 style="font-weight:600;font-size:15.5px;line-height:1.25;color:#F4F7FF;margin:18px 0 7px;">Находим ИИ-сценарии</h3>
+          <p style="margin:0;font-size:13px;line-height:1.45;color:#A8ACBC;">Что автоматизировать, усилить или стандартизировать.</p>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 4px;">
+          <span style="position:relative;z-index:1;display:inline-flex;width:52px;height:52px;border-radius:50%;background:#0E1020;border:1.5px solid #49D6FF;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:600;font-size:17px;color:#F4F7FF;box-shadow:0 0 0 5px rgba(73,214,255,0.10),0 0 22px rgba(73,214,255,0.34);font-variant-numeric:tabular-nums;">03</span>
+          <h3 style="font-weight:600;font-size:15.5px;line-height:1.25;color:#F4F7FF;margin:18px 0 7px;">Выбираем пилот</h3>
+          <p style="margin:0;font-size:13px;line-height:1.45;color:#A8ACBC;">Один процесс, понятный эффект, ограниченный риск.</p>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 4px;">
+          <span style="position:relative;z-index:1;display:inline-flex;width:52px;height:52px;border-radius:50%;background:#0E1020;border:1.5px solid #49D6FF;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:600;font-size:17px;color:#F4F7FF;box-shadow:0 0 0 5px rgba(73,214,255,0.10),0 0 22px rgba(73,214,255,0.30);font-variant-numeric:tabular-nums;">04</span>
+          <h3 style="font-weight:600;font-size:15.5px;line-height:1.25;color:#F4F7FF;margin:18px 0 7px;">Собираем решение</h3>
+          <p style="margin:0;font-size:13px;line-height:1.45;color:#A8ACBC;">Инструменты, промпты, интеграции, тестирование.</p>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 4px;">
+          <span style="position:relative;z-index:1;display:inline-flex;width:52px;height:52px;border-radius:50%;background:#0E1020;border:1.5px solid #D6DEFF;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:600;font-size:17px;color:#F4F7FF;box-shadow:0 0 0 5px rgba(214,222,255,0.08),0 0 22px rgba(214,222,255,0.26);font-variant-numeric:tabular-nums;">05</span>
+          <h3 style="font-weight:600;font-size:15.5px;line-height:1.25;color:#F4F7FF;margin:18px 0 7px;">Обучаем команду</h3>
+          <p style="margin:0;font-size:13px;line-height:1.45;color:#A8ACBC;">Чтобы сотрудники реально использовали решение.</p>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 4px;">
+          <span style="position:relative;z-index:1;display:inline-flex;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#49D6FF);border:1.5px solid #D6DEFF;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:600;font-size:17px;color:#08070B;box-shadow:0 0 0 5px rgba(214,222,255,0.10),0 0 26px rgba(73,214,255,0.40);font-variant-numeric:tabular-nums;">06</span>
+          <h3 style="font-weight:600;font-size:15.5px;line-height:1.25;color:#F4F7FF;margin:18px 0 7px;">Масштабируем</h3>
+          <p style="margin:0;font-size:13px;line-height:1.45;color:#A8ACBC;">Развиваем то, что подтвердило эффект.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ОТ ОБУЧЕНИЯ К ВНЕДРЕНИЮ (мост) ============ -->
+  <section id="bridge" style="background:#0E1020;border-top:1px solid #2A2A3D;border-bottom:1px solid #2A2A3D;">
+    <div data-r="container" style="max-width:1240px;margin:0 auto;padding:34px 80px;">
+      <div data-r="row" style="display:flex;align-items:center;gap:22px;">
+        <span style="flex:none;display:inline-flex;width:48px;height:48px;border-radius:14px;background:linear-gradient(120deg,#8B5CF6,#49D6FF 70%,#D6DEFF);align-items:center;justify-content:center;color:#0B0A12;"><i data-lucide="arrow-right" width="22" height="22"></i></span>
+        <div>
+          <h3 style="font-weight:600;font-size:18px;color:#F4F7FF;margin:0 0 6px;">От обучения к внедрению</h3>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#A8ACBC;max-width:860px;">Обучение — безопасный первый шаг к внедрению ИИ. После него понятно, какие задачи стоит усилить и дальше автоматизировать, без сопротивления сотрудников компании.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ОПЫТ И ЭКСПЕРТИЗА ============ -->
+  <section id="team" data-r="section" style="padding:80px 0;background:#08070B;">
+    
+  <div data-r="container" style="max-width:1240px;margin:0 auto;padding:0 80px;">
+      <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8B5CF6;">Опыт и экспертиза</span>
+      <h2 data-r="h2" style="font-weight: 600; font-size: 38px; line-height: 1.12; letter-spacing: -0.01em; margin: 14px 0 0; max-width: 760px; width: 100%; height: 100%">Объединяем управленческую, маркетинговую, операционную и AI-экспертизу&nbsp;</h2><p style="font-size:16px;line-height:1.55;color:#A8ACBC;margin:16px 0 36px;max-width:740px;"><br></p>
+      
+      <div data-r="grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:24px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:44px;height:44px;border-radius:13px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.32);align-items:center;justify-content:center;color:#CBB6FF;margin-bottom:16px;"><i data-lucide="award" width="20" height="20"></i></span>
+          <h3 style="font-weight:600;font-size:16px;line-height:1.3;color:#F4F7FF;margin:0 0 7px;">20+ лет управленческого и бизнес-опыта</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Практика руководства бизнесом, а не только знание нейросетей.</p>
+        </div>
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:24px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:44px;height:44px;border-radius:13px;background:rgba(73,214,255,0.10);border:1px solid rgba(73,214,255,0.28);align-items:center;justify-content:center;color:#B4ECFF;margin-bottom:16px;"><i data-lucide="trending-up" width="20" height="20"></i></span>
+          <h3 style="font-weight:600;font-size:16px;line-height:1.3;color:#F4F7FF;margin:0 0 7px;">Продажи, маркетинг и операционные процессы</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Выстраиваем и систематизируем то, что напрямую влияет на результат.</p>
+        </div>
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:24px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:44px;height:44px;border-radius:13px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.32);align-items:center;justify-content:center;color:#CBB6FF;margin-bottom:16px;"><i data-lucide="cpu" width="20" height="20"></i></span>
+          <h3 style="font-weight:600;font-size:16px;line-height:1.3;color:#F4F7FF;margin:0 0 7px;">AI-автоматизация и разработка решений</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Подбираем, адаптируем и внедряем решения под задачи бизнеса.</p>
+        </div>
+
+        <div style="background:#161629;border:1px solid #2A2A3D;border-radius:18px;padding:24px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);">
+          <span style="display:inline-flex;width:44px;height:44px;border-radius:13px;background:rgba(71,235,165,0.10);border:1px solid rgba(71,235,165,0.28);align-items:center;justify-content:center;color:#A8F4D2;margin-bottom:16px;"><i data-lucide="graduation-cap" width="20" height="20"></i></span>
+          <h3 style="font-weight:600;font-size:16px;line-height:1.3;color:#F4F7FF;margin:0 0 7px;">Корпоративное обучение и внедрение изменений</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#A8ACBC;">Закрепляем результат в команде и сопровождаем внедрение.</p>
+        </div>
+      </div>
+    </div></section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" data-r="section" style="padding:80px 0;background:#0E1020;border-top:1px solid #2A2A3D;border-bottom:1px solid #2A2A3D;">
+    <div data-r="container" style="max-width:920px;margin:0 auto;padding:0 80px;">
+      <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#8B5CF6;">FAQ</span>
+      <h2 data-r="h2" style="font-weight:600;font-size:38px;line-height:1.12;letter-spacing:-0.01em;margin:14px 0 32px;">Вопросы, которые задают чаще всего</h2>
+      <x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Accordion" items="{{ faqItems }}" default-open="0" hint-size="100%,480px"></x-import>
+    </div>
+  </section>
+
+  <!-- ============ CTA BANNER ============ -->
+  <section id="cta" data-r="section" style="padding:80px 0;background:#08070B;">
+    <div data-r="container" style="max-width:1240px;margin:0 auto;padding:0 80px;">
+      <div data-r="cta-pad" style="position:relative;background:linear-gradient(120deg,#1E1B3A,#161629 70%);border:1px solid rgba(139,92,246,0.35);border-radius:28px;padding:64px 64px;overflow:hidden;text-align:center;">
+        <span aria-hidden="true" style="position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:560px;height:420px;background:radial-gradient(closest-side,rgba(139,92,246,0.22),rgba(139,92,246,0) 70%);pointer-events:none;"></span>
+        <span aria-hidden="true" style="position:absolute;bottom:-140px;right:-60px;width:360px;height:360px;background:radial-gradient(closest-side,rgba(73,214,255,0.16),rgba(73,214,255,0) 70%);pointer-events:none;"></span>
+        <h2 data-r="h2" style="position:relative;font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.02em;margin:0 auto;max-width:760px;">Покажем, где ИИ даст эффект <span style="background:linear-gradient(100deg,#8B5CF6,#49D6FF 60%,#D6DEFF);-webkit-background-clip:text;background-clip:text;color:transparent;">именно в вашей компании</span></h2>
+        <p style="position:relative;font-size:18px;line-height:1.6;color:#C7CBDA;margin:22px auto 0;max-width:640px;">Начинаем с диагностики. Честный вывод — даже если ИИ вам пока не нужен. Без обязательств продолжать. Точную стоимость рассчитываем после короткого разговора.</p>
+        <div data-r="row" style="position:relative;display:flex;gap:14px;justify-content:center;margin-top:34px;">
+          <a href="https://t.me/ainovation_online" target="_blank" rel="noopener" style="text-decoration:none;"><x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Button" variant="primary" size="lg" hint-size="300px,56px">Записаться на ИИ-диагностику</x-import></a>
+        </div>
+        <p style="position:relative;font-family:'Inter',sans-serif;font-size:13px;line-height:1.5;color:#8E92A4;margin:18px auto 0;max-width:560px;">Для B2B-компаний с выручкой от 100 млн ₽: инжиниринг, проектные бюро, экспертные сервисы.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="contacts" style="border-top:1px solid #2A2A3D;background:#08070B;">
+    <div data-r="container" style="max-width:1240px;margin:0 auto;padding:56px 80px 36px;">
+      <div data-r="row" style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;">
+        <div style="max-width:360px;">
+          <x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Logo" size="md" hint-size="200px,52px"></x-import>
+          <p style="margin:20px 0 0;font-size:16px;line-height:1.5;color:#A8ACBC;">Внедряем ИИ туда, где он даёт бизнес-эффект.</p>
+        </div>
+        <div data-r="row" style="display:flex;gap:64px;flex-wrap:wrap;">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#6F7384;margin-bottom:14px;">Контакты</div>
+            <div style="display:flex;flex-direction:column;gap:9px;font-family:'Inter',sans-serif;font-size:15px;color:#A8ACBC;">
+              <span style="color:#6F7384;">email · info@ainovation.online</span>
+              <span style="color:#6F7384;">Telegram · t.me/ainovation_online</span>
+              <span style="color:#6F7384;">телефон · +79933572397</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#6F7384;margin-bottom:14px;">Документы</div>
+            <div style="display:flex;flex-direction:column;gap:9px;font-family:'Inter',sans-serif;font-size:15px;">
+              <a href="#" style="color:#A8ACBC;text-decoration:none;">Политика обработки персональных данных</a>
+              <a href="#" style="color:#A8ACBC;text-decoration:none;">Согласие на обработку данных</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:40px;padding-top:22px;border-top:1px solid #2A2A3D;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        <span style="font-family:'Inter',sans-serif;font-size:13px;color:#6F7384;">© AiNovation, 2026</span>
+        <span style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6F7384;">NEXT-LEVEL BUSINESS</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1240 },
+  &quot;heroShader&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot; }
+}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._renderIcons();
+    if (this.props.heroShader ?? true) this._initHeroShader();
+  }
+
+  componentDidUpdate() {
+    this._renderIcons();
+  }
+
+  componentWillUnmount() {
+    if (this._heroRaf) cancelAnimationFrame(this._heroRaf);
+    if (this._heroResize) window.removeEventListener('resize', this._heroResize);
+    if (this._heroRO && this._heroRO.disconnect) this._heroRO.disconnect();
+  }
+
+  _initHeroShader() {
+    try {
+      const canvas = document.getElementById('ai-hero-shader');
+      if (!canvas) { if ((this._heroTries = (this._heroTries || 0) + 1) < 30) setTimeout(() => this._initHeroShader(), 120); return; }
+      const gl = canvas.getContext('webgl', { premultipliedAlpha: false }) || canvas.getContext('experimental-webgl');
+      if (!gl) return;
+
+      const vs = 'attribute vec4 aVertexPosition; void main(){ gl_Position = aVertexPosition; }';
+      const fs = [
+        'precision highp float;',
+        'uniform vec2 iResolution;',
+        'uniform float iTime;',
+        'const float overallSpeed = 0.18;',
+        'const float gridSmoothWidth = 0.015;',
+        'const float axisWidth = 0.05;',
+        'const float majorLineWidth = 0.025;',
+        'const float minorLineWidth = 0.0125;',
+        'const float majorLineFrequency = 5.0;',
+        'const float minorLineFrequency = 1.0;',
+        'const float scale = 5.0;',
+        'const vec4 lineColor = vec4(0.46, 0.30, 0.88, 1.0);',
+        'const float minLineWidth = 0.01;',
+        'const float maxLineWidth = 0.2;',
+        'const float lineSpeed = 1.0 * overallSpeed;',
+        'const float lineAmplitude = 1.0;',
+        'const float lineFrequency = 0.2;',
+        'const float warpSpeed = 0.2 * overallSpeed;',
+        'const float warpFrequency = 0.5;',
+        'const float warpAmplitude = 1.0;',
+        'const float offsetFrequency = 0.5;',
+        'const float offsetSpeed = 1.33 * overallSpeed;',
+        'const float minOffsetSpread = 0.6;',
+        'const float maxOffsetSpread = 2.0;',
+        'const int linesPerGroup = 16;',
+        '#define drawCircle(pos, radius, coord) smoothstep(radius + gridSmoothWidth, radius, length(coord - (pos)))',
+        '#define drawSmoothLine(pos, halfWidth, t) smoothstep(halfWidth, 0.0, abs(pos - (t)))',
+        '#define drawCrispLine(pos, halfWidth, t) smoothstep(halfWidth + gridSmoothWidth, halfWidth, abs(pos - (t)))',
+        '#define drawPeriodicLine(freq, width, t) drawCrispLine(freq / 2.0, width, abs(mod(t, freq) - (freq) / 2.0))',
+        'float random(float t){ return (cos(t) + cos(t * 1.3 + 1.3) + cos(t * 1.4 + 1.4)) / 3.0; }',
+        'float getPlasmaY(float x, float horizontalFade, float offset){ return random(x * lineFrequency + iTime * lineSpeed) * horizontalFade * lineAmplitude + offset; }',
+        'void main(){',
+        '  vec2 fragCoord = gl_FragCoord.xy;',
+        '  vec4 fragColor;',
+        '  vec2 uv = fragCoord.xy / iResolution.xy;',
+        '  vec2 space = (fragCoord - iResolution.xy / 2.0) / iResolution.x * 2.0 * scale;',
+        '  float horizontalFade = 1.0 - (cos(uv.x * 6.28) * 0.5 + 0.5);',
+        '  float verticalFade = 1.0 - (cos(uv.y * 6.28) * 0.5 + 0.5);',
+        '  space.y += random(space.x * warpFrequency + iTime * warpSpeed) * warpAmplitude * (0.5 + horizontalFade);',
+        '  space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;',
+        '  vec4 lines = vec4(0.0);',
+        '  vec4 bgColor1 = vec4(0.031, 0.027, 0.043, 1.0);',
+        '  vec4 bgColor2 = vec4(0.105, 0.063, 0.205, 1.0);',
+        '  for(int l = 0; l < linesPerGroup; l++){',
+        '    float normalizedLineIndex = float(l) / float(linesPerGroup);',
+        '    float offsetTime = iTime * offsetSpeed;',
+        '    float offsetPosition = float(l) + space.x * offsetFrequency;',
+        '    float rand = random(offsetPosition + offsetTime) * 0.5 + 0.5;',
+        '    float halfWidth = mix(minLineWidth, maxLineWidth, rand * horizontalFade) / 2.0;',
+        '    float offset = random(offsetPosition + offsetTime * (1.0 + normalizedLineIndex)) * mix(minOffsetSpread, maxOffsetSpread, horizontalFade);',
+        '    float linePosition = getPlasmaY(space.x, horizontalFade, offset);',
+        '    float line = drawSmoothLine(linePosition, halfWidth, space.y) / 2.0 + drawCrispLine(linePosition, halfWidth * 0.15, space.y);',
+        '    float circleX = mod(float(l) + iTime * lineSpeed, 25.0) - 12.0;',
+        '    vec2 circlePosition = vec2(circleX, getPlasmaY(circleX, horizontalFade, offset));',
+        '    float circle = drawCircle(circlePosition, 0.01, space) * 4.0;',
+        '    line = line + circle;',
+        '    lines += line * lineColor * rand;',
+        '  }',
+        '  fragColor = mix(bgColor1, bgColor2, uv.x);',
+        '  fragColor *= verticalFade;',
+        '  fragColor.a = 1.0;',
+        '  fragColor += lines;',
+        '  gl_FragColor = fragColor;',
+        '}'
+      ].join('\n');
+
+      const compile = (type, src) => {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { console.warn('shader compile:', gl.getShaderInfoLog(s)); gl.deleteShader(s); return null; }
+        return s;
+      };
+      const v = compile(gl.VERTEX_SHADER, vs);
+      const f = compile(gl.FRAGMENT_SHADER, fs);
+      if (!v || !f) return;
+      const prog = gl.createProgram();
+      gl.attachShader(prog, v); gl.attachShader(prog, f); gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { console.warn('shader link:', gl.getProgramInfoLog(prog)); return; }
+
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+      const loc = gl.getAttribLocation(prog, 'aVertexPosition');
+      const uRes = gl.getUniformLocation(prog, 'iResolution');
+      const uTime = gl.getUniformLocation(prog, 'iTime');
+
+      const resize = () => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = canvas.clientWidth || canvas.offsetWidth || 1;
+        const h = canvas.clientHeight || canvas.offsetHeight || 1;
+        canvas.width = Math.max(1, Math.floor(w * dpr));
+        canvas.height = Math.max(1, Math.floor(h * dpr));
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      };
+      this._heroResize = resize;
+      window.addEventListener('resize', resize);
+      if (window.ResizeObserver) { this._heroRO = new ResizeObserver(resize); this._heroRO.observe(canvas); }
+      resize();
+
+      const draw = (t) => {
+        gl.useProgram(prog);
+        gl.uniform2f(uRes, canvas.width, canvas.height);
+        gl.uniform1f(uTime, t);
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+        gl.enableVertexAttribArray(loc);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      };
+
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) { draw(8.0); return; }
+      const start = Date.now();
+      const loop = () => { draw((Date.now() - start) / 1000); this._heroRaf = requestAnimationFrame(loop); };
+      loop();
+    } catch (e) { /* WebGL unavailable — navy fallback background remains */ }
+  }
+
+  _renderIcons() {
+    let tries = 0;
+    const run = () => {
+      if (window.lucide && window.lucide.createIcons) {
+        try { window.lucide.createIcons(); } catch (e) {}
+      } else if (tries++ < 25) {
+        setTimeout(run, 150);
+      }
+    };
+    run();
+  }
+
+  renderVals() {
+    const faqItems = [
+      { q: 'А это точно окупится?', a: 'Именно это мы и считаем на этапе диагностики. Мы не обещаем эффект заранее — показываем расчёт по вашим процессам, и дальше вы сами решаете, идти ли в пилот.' },
+      { q: 'А если диагностика покажет, что нам ИИ пока не нужен?', a: 'Мы прямо так и скажем. Если эффекта сейчас нет или он незначительный, мы не будем убеждать вас в обратном ради продажи пилота — вы получите честный вывод и не потратите бюджет на ненужное внедрение.' },
+      { q: 'А может, просто нанять своего AI-специалиста?', a: 'Если вы уже понимаете, какие процессы развивать и какие компетенции нужны, найм может быть правильным решением. Если такого понимания пока нет, диагностика помогает сначала определить задачи, требования и экономику внедрения.' },
+      { q: 'Вы замените наших сотрудников?', a: 'Нет. Мы строим модель «человек плюс ИИ»: рутинные операции берёт на себя система, а решения и контроль остаются за людьми.' },
+      { q: 'Команда не будет сопротивляться?', a: 'Сопротивление — нормальная часть любого изменения. Поэтому обучение и работа с командой встроены в продукт, а не идут отдельной опцией.' },
+      { q: 'Что с безопасностью и нашими данными?', a: 'Контур работы с данными определяется на этапе диагностики: какие типы данных участвуют, кто имеет доступ, какие сервисы допустимы, что подлежит обезличиванию. Для чувствительных данных используем закрытые корпоративные решения, ограниченный доступ и NDA с привлечёнными специалистами.' },
+    ];
+    return { faqItems };
+  }
+}
+</script>
+</body>
+</html>

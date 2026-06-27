@@ -1,0 +1,38 @@
+/* ============================================================
+   AiNovation — SPACING, RADII, LAYOUT
+   8px base rhythm. Generous air > density (B2B).
+   ============================================================ */
+:root {
+  /* ---- Spacing scale (8px base) ---- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  40px;
+  --space-8:  56px;
+  --space-9:  72px;
+  --space-10: 96px;
+  --space-11: 128px;   /* between major sections */
+  --space-12: 160px;
+
+  /* ---- Card / surface padding ---- */
+  --pad-card:  32px;     /* 28–40 range */
+  --pad-card-lg: 40px;
+
+  /* ---- Radii ---- */
+  --radius-xs:  8px;
+  --radius-sm:  12px;
+  --radius-md:  16px;   /* buttons, inputs */
+  --radius-lg:  20px;   /* cards */
+  --radius-xl:  28px;   /* large cards / panels */
+  --radius-pill: 999px;
+
+  /* ---- Layout ---- */
+  --container:    1240px; /* @kind spacing */
+  --container-narrow: 920px; /* @kind spacing */
+  --gutter:       80px;   /* @kind spacing */
+  --gutter-mobile: 22px;  /* @kind spacing */
+  --grid-cols:    12; /* @kind other */
+}

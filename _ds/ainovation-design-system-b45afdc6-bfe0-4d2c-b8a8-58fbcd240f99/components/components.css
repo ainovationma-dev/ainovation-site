@@ -1,0 +1,65 @@
+/* ============================================================
+   AiNovation — component interaction states.
+   Hover/active/focus behaviours that can't live in inline style objects.
+   Motion is calm: subtle lift + glow, no bounce. Press = slight shrink.
+   ============================================================ */
+
+/* ---- Button ---- */
+.ainv-btn { outline: none; }
+.ainv-btn:focus-visible { box-shadow: var(--ring-focus); }
+.ainv-btn:not(:disabled):active { transform: translateY(1px) scale(0.985); }
+
+.ainv-btn--primary:not(:disabled):hover {
+  background: var(--violet-strong);
+  box-shadow: var(--glow-accent);
+  transform: translateY(-1px);
+}
+.ainv-btn--secondary:not(:disabled):hover {
+  border-color: var(--border-active);
+  background: rgba(139, 92, 246, 0.08);
+}
+.ainv-btn--ghost:not(:disabled):hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+.ainv-btn--link:not(:disabled):hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---- Card ---- */
+.ainv-card--interactive {
+  transition: transform var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out);
+}
+.ainv-card--interactive:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-active);
+  background: var(--surface-raised);
+  box-shadow: var(--glow-accent-sm);
+}
+
+/* ---- Input ---- */
+.ainv-field {
+  transition: border-color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out);
+}
+.ainv-field::placeholder { color: var(--text-muted); }
+.ainv-field:hover { border-color: var(--border-hairline); }
+.ainv-field:focus {
+  outline: none;
+  border-color: var(--border-active);
+  box-shadow: var(--ring-focus);
+  background: var(--surface-raised);
+}
+
+/* ---- Accordion ---- */
+.ainv-acc__trigger {
+  transition: color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+.ainv-acc__trigger:hover { color: var(--text-primary); }
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .ainv-btn, .ainv-card--interactive, .ainv-field { transition: none; }
+}

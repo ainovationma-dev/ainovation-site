@@ -1,0 +1,64 @@
+/* ============================================================
+   AiNovation — COLORS
+   Dark Structured AI Consulting. 80% dark base · 10–15% text/cards · 5–10% AI glow.
+   One accent gradient: violet → cyan → frost. No rainbow.
+   ============================================================ */
+:root {
+  /* ---- Base palette (raw values) ---- */
+  --void:            #08070B;  /* deepest background */
+  --navy:            #0E1020;  /* section background */
+  --nebula:          #161629;  /* card surface */
+  --nebula-2:        #1E1B3A;  /* card hover / raised */
+  --graphite:        #20202F;  /* subtle fills */
+
+  --frost-white:     #F4F7FF;  /* primary text */
+  --mist:            #A8ACBC;  /* secondary text */
+  --muted:           #6F7384;  /* tertiary / captions */
+
+  --border-soft:     #2A2A3D;  /* default borders, dividers */
+  --border-strong:   #3A3A52;  /* hairlines on raised surfaces */
+
+  /* ---- Accent palette ---- */
+  --violet:          #8B5CF6;  /* PRIMARY accent — CTA, key words, active */
+  --violet-strong:   #7A4DF0;  /* pressed / deeper violet */
+  --aurora:          #B574AB;  /* soft magenta for gradients/glow */
+  --cyan:            #49D6FF;  /* AI light — micro-accents, status, nodes */
+  --mint:            #47EBA5;  /* positive / "live" status */
+  --frost-blue:      #D6DEFF;  /* light glow, icon tints */
+
+  /* ---- Semantic status ---- */
+  --success:         #47EBA5;
+  --info:            #49D6FF;
+  --warning:         #F5C26B;
+  --danger:          #F2657A;
+
+  /* ---- Signature gradient ---- */
+  --grad-aurora:     linear-gradient(100deg, #8B5CF6 0%, #49D6FF 60%, #D6DEFF 100%); /* @kind color */
+  --grad-aurora-soft: linear-gradient(135deg, rgba(139,92,246,0.22) 0%, rgba(73,214,255,0.14) 100%); /* @kind color */
+  --grad-violet:     linear-gradient(120deg, #8B5CF6 0%, #B574AB 100%); /* @kind color */
+  /* Radial glow used behind hero / cards */
+  --glow-violet:     radial-gradient(closest-side, rgba(139,92,246,0.35), rgba(139,92,246,0) 70%); /* @kind color */
+  --glow-cyan:       radial-gradient(closest-side, rgba(73,214,255,0.28), rgba(73,214,255,0) 70%); /* @kind color */
+
+  /* ============================================================
+     SEMANTIC ALIASES — prefer these in components
+     ============================================================ */
+  --bg-base:         var(--void);
+  --bg-section:      var(--navy);
+  --surface-card:    var(--nebula);
+  --surface-raised:  var(--nebula-2);
+  --surface-subtle:  var(--graphite);
+
+  --text-primary:    var(--frost-white);
+  --text-secondary:  var(--mist);
+  --text-muted:      var(--muted);
+  --text-accent:     var(--violet);
+  --text-on-accent:  #0B0A12;
+
+  --border-default:  var(--border-soft);
+  --border-hairline: var(--border-strong);
+  --border-active:   var(--violet);
+
+  --accent:          var(--violet);
+  --accent-glow:     var(--cyan);
+}
