@@ -51,7 +51,13 @@
   <!-- ============ HEADER ============ -->
   <header style="position:sticky;top:0;z-index:60;background:rgba(8,7,11,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #2A2A3D;">
     <div data-r="container" style="max-width:1240px;margin:0 auto;padding:0 80px;height:72px;display:flex;align-items:center;gap:28px;">
-      <x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Logo" size="sm" hint-size="170px,40px"></x-import>
+      <span style="display:inline-flex;align-items:center;gap:8px;">
+        <svg width="18" height="18" viewBox="0 0 32 32" fill="none" aria-hidden="true"><defs><linearGradient id="lg1" x1="2" y1="4" x2="30" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#8B5CF6"/><stop offset="0.6" stop-color="#49D6FF"/><stop offset="1" stop-color="#D6DEFF"/></linearGradient></defs><path d="M7 24 L16 6 L25 24" stroke="url(#lg1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="24" r="3" fill="#8B5CF6"/><circle cx="16" cy="6" r="3" fill="#49D6FF"/><circle cx="25" cy="24" r="3" fill="#D6DEFF"/></svg>
+        <span style="display:inline-flex;flex-direction:column;gap:1px;">
+          <span style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:300;letter-spacing:-0.01em;color:#F4F7FF;line-height:1;">ainovation</span>
+          <span style="font-family:'Inter',sans-serif;font-size:7px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6F7384;line-height:1;">NEXT-LEVEL BUSINESS</span>
+        </span>
+      </span>
       <nav data-r="nav" style="display:flex;gap:26px;margin-left:24px;">
         <a href="#about" style="font-family:'Inter',sans-serif;font-size:15px;color:#A8ACBC;text-decoration:none;">Подход</a>
         <a href="#products" style="font-family:'Inter',sans-serif;font-size:15px;color:#A8ACBC;text-decoration:none;">Услуги</a>
@@ -62,7 +68,7 @@
       </nav>
       <div data-r="header-cta" style="margin-left:auto;">
         <a href="#cta" style="text-decoration:none;">
-          <x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Button" variant="primary" size="sm" hint-size="170px,40px">Обсудить внедрение</x-import>
+          <span style="display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.01em;border-radius:12px;background:#8B5CF6;color:#fff;border:1px solid transparent;cursor:pointer;white-space:nowrap;box-shadow:0 0 16px rgba(139,92,246,0.4);">Обсудить внедрение</span>
         </a>
       </div>
     </div>
@@ -79,8 +85,8 @@
       <h1 data-r="h1" style="font-weight:700;font-size:60px;line-height:1.05;letter-spacing:-0.02em;margin:24px 0 0;max-width:760px;">Система роста бизнеса <span style="background:linear-gradient(100deg,#8B5CF6,#49D6FF 60%,#D6DEFF);-webkit-background-clip:text;background-clip:text;color:transparent;">без роста штата</span></h1>
       <p style="font-size:19px;line-height:1.55;color:#A8ACBC;margin:22px 0 0;max-width:540px;">Определяем, где ИИ реально окупится, запускаем пилот и встраиваем решение в работу команды — без хаоса и слепых вложений.</p>
       <div data-r="row" style="display:flex;gap:14px;margin-top:30px;">
-        <a href="https://t.me/ainovation_online" target="_blank" rel="noopener" style="text-decoration:none;"><x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Button" variant="primary" size="lg" hint-size="300px,56px">Записаться на ИИ-диагностику</x-import></a>
-        <a href="#cases" style="text-decoration:none;"><x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Button" variant="secondary" size="lg" hint-size="180px,56px">Смотреть результаты</x-import></a>
+        <a href="https://t.me/ainovation_online" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;height:58px;padding:0 34px;font-family:'Manrope',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;border-radius:16px;background:#8B5CF6;color:#fff;border:1px solid transparent;cursor:pointer;white-space:nowrap;box-shadow:0 0 20px rgba(139,92,246,0.45);">Записаться на ИИ-диагностику</a>
+        <a href="#cases" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;height:58px;padding:0 34px;font-family:'Manrope',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;border-radius:16px;background:transparent;color:#F4F7FF;border:1px solid #3A3A52;cursor:pointer;white-space:nowrap;">Смотреть результаты</a>
       </div>
     </div>
 
@@ -494,7 +500,7 @@
         <h2 data-r="h2" style="position:relative;font-weight:700;font-size:42px;line-height:1.1;letter-spacing:-0.02em;margin:0 auto;max-width:760px;">Покажем, где ИИ даст эффект <span style="background:linear-gradient(100deg,#8B5CF6,#49D6FF 60%,#D6DEFF);-webkit-background-clip:text;background-clip:text;color:transparent;">именно в вашей компании</span></h2>
         <p style="position:relative;font-size:18px;line-height:1.6;color:#C7CBDA;margin:22px auto 0;max-width:640px;">Начинаем с диагностики. Честный вывод — даже если ИИ вам пока не нужен. Без обязательств продолжать. Точную стоимость рассчитываем после короткого разговора.</p>
         <div data-r="row" style="position:relative;display:flex;gap:14px;justify-content:center;margin-top:34px;">
-          <a href="https://t.me/ainovation_online" target="_blank" rel="noopener" style="text-decoration:none;"><x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Button" variant="primary" size="lg" hint-size="300px,56px">Записаться на ИИ-диагностику</x-import></a>
+          <a href="https://t.me/ainovation_online" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;height:58px;padding:0 34px;font-family:'Manrope',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;border-radius:16px;background:#8B5CF6;color:#fff;border:1px solid transparent;cursor:pointer;white-space:nowrap;box-shadow:0 0 20px rgba(139,92,246,0.45);">Записаться на ИИ-диагностику</a>
         </div>
         <p style="position:relative;font-family:'Inter',sans-serif;font-size:13px;line-height:1.5;color:#8E92A4;margin:18px auto 0;max-width:560px;">Для B2B-компаний с выручкой от 100 млн ₽: инжиниринг, проектные бюро, экспертные сервисы.</p>
       </div>
@@ -506,7 +512,13 @@
     <div data-r="container" style="max-width:1240px;margin:0 auto;padding:56px 80px 36px;">
       <div data-r="row" style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;">
         <div style="max-width:360px;">
-          <x-import component-from-global-scope="AiNovationDesignSystem_b45afd.Logo" size="md" hint-size="200px,52px"></x-import>
+          <span style="display:inline-flex;align-items:center;gap:10px;">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true"><defs><linearGradient id="lg2" x1="2" y1="4" x2="30" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#8B5CF6"/><stop offset="0.6" stop-color="#49D6FF"/><stop offset="1" stop-color="#D6DEFF"/></linearGradient></defs><path d="M7 24 L16 6 L25 24" stroke="url(#lg2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="24" r="3" fill="#8B5CF6"/><circle cx="16" cy="6" r="3" fill="#49D6FF"/><circle cx="25" cy="24" r="3" fill="#D6DEFF"/></svg>
+            <span style="display:inline-flex;flex-direction:column;gap:2px;">
+              <span style="font-family:'Manrope',sans-serif;font-size:28px;font-weight:300;letter-spacing:-0.01em;color:#F4F7FF;line-height:1;">ainovation</span>
+              <span style="font-family:'Inter',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6F7384;line-height:1;">NEXT-LEVEL BUSINESS</span>
+            </span>
+          </span>
           <p style="margin:20px 0 0;font-size:16px;line-height:1.5;color:#A8ACBC;">Внедряем ИИ туда, где он даёт бизнес-эффект.</p>
         </div>
         <div data-r="row" style="display:flex;gap:64px;flex-wrap:wrap;">
